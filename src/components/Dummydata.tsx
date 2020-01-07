@@ -72,6 +72,7 @@ export const Dummydata = props => {
   const [comparingBuildings, updateComparingBuildings] = useState(new Map());
 
   let testEvent = e => {
+    console.log(e);
     console.log("featureId", e.features[0].id);
     updatePopUpData(null);
     if (e.features.length > 0) {

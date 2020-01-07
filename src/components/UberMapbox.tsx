@@ -8,8 +8,8 @@ export const UberMapbox = props => {
   const [viewport, updateViewport] = useState({
     width: "500%",
     height: 900,
-    latitude: 40.7135,
-    longitude: -74.0066,
+    latitude: 1.437626910368266,
+    longitude: 103.78929950841263,
     zoom: 15.5
   });
   
@@ -17,13 +17,20 @@ export const UberMapbox = props => {
 
   let testEvent = e => {
     console.log("feature", e);
+    // let map = e.target;
+    // let features = map.queryRenderedFeatures(e.point);
+    // console.log('features', features);
+    // features.forEach(f => {
+    //   map.setFeatureState(f, {clicked: true});
+    // })
     if (e.features.length > 0) {
       const hoveredStateId = e.features[0].id;
+      setClickedId(hoveredStateId);
 
-      if (hoveredStateId !== clickedId && hoveredStateId) {
-        console.log(hoveredStateId, "hoveredStateId");
-        setClickedId(hoveredStateId);
-      }
+      // if (hoveredStateId !== clickedId && hoveredStateId) {
+      //   console.log(hoveredStateId, "hoveredStateId");
+      //   setClickedId(hoveredStateId);
+      // }
     }
   };
 
@@ -41,11 +48,13 @@ export const UberMapbox = props => {
         antialias={true}
         container="map"
       >
-        <Source
+          <Source id='city' type='vector' url='mapbox://krishna110.7wqy18od' />
+
+        {/* <Source
           id="route"
           type="geojson"
           data="http://public-chesva.opendata.arcgis.com/datasets/a8927260f1c649abaabc306dcea6129c_9.geojson"
-        />
+        /> */}
         {/* <Layer
                 id="route"
                 type="line"
@@ -62,8 +71,8 @@ export const UberMapbox = props => {
         <Layer
           id="route"
           type="fill-extrusion"
-          source="composite"
-          source-layer="building"
+          source="city"
+          source-layer="sgcity_cleaned"
           zoom={15.5}
           onClick={e => {
             console.log(e);
@@ -109,8 +118,8 @@ export const UberMapbox = props => {
         {clickedId && (
           <FeatureState
             id={clickedId}
-            source="composite"
-            sourceLayer="building"
+            source="city"
+          sourceLayer="sgcity_cleaned"
             state={{ clicked: true }}
           />
         )}

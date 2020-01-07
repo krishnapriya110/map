@@ -24,10 +24,10 @@ const MapContainer = ({ ...props }) => {
         <h1>Map Component</h1>
       </Header>
       <main>
-        {/* <UberMapbox /> */}
+        <UberMapbox />
         {/* <ExternalData/> */}
         {/* <IndorData/> */}
-        <Dummydata/>
+        {/* <Dummydata/> */}
       </main>
     </Fragment>
   );

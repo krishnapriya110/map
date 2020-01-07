@@ -1,3 +1,3 @@
 export default{
-    Map_Token:"pk.eyJ1IjoiYnJpYW5iYW5jcm9mdCIsImEiOiJsVGVnMXFzIn0.7ldhVh3Ppsgv4lCYs65UdA"
+    Map_Token:"pk.eyJ1Ijoia3Jpc2huYTExMCIsImEiOiJjazQ4OWw3cnQwMGdmM2VrZjZiemgzYnM3In0.97lgGxOrfNGMHKobrgcshQ"
 }
